@@ -42,7 +42,7 @@ const ListTable = () => {
                 <TableCell className="">{row.date}</TableCell>
                 <TableCell className="">{row.amount}</TableCell>
                 <TableCell className="">{row.method}</TableCell>
-                <TableCell ><span className={row.status === "Approved" ? "bg-green-300 text-green-700 p-2 rounded-lg" : "bg-orange-300 p-2 text-orange-700"}>{row.status}</span></TableCell>
+                <TableCell ><span className={row.status === "Approved" ? "bg-green-300 text-green-700 p-2 rounded-lg" : "bg-orange-300 p-2 text-orange-700 rounded-lg"}>{row.status}</span></TableCell>
               </TableRow>
             ))}
           </TableBody>

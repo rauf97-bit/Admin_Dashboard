@@ -22,7 +22,7 @@ const Home = () => {
         </div>
         <div className="grid gap-5 grid-cols-3 py-3">
           <Features />
-          <Chart />
+          <Chart aspect={2 / 1} />
         </div>
         <ListTable />
       </div>
