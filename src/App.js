@@ -5,7 +5,7 @@ import List from "./Screens/List";
 import Login from "./Screens/Login";
 import New from "./Screens/New";
 import Single from "./Screens/Single";
-
+import {productData, userData} from './Data/newData'
 const App = () => {
   return (
     <Router>
@@ -17,12 +17,12 @@ const App = () => {
           <Route path="users">
             <Route index element={<List />}></Route>
             <Route path=":userId" element={<Single />}></Route>
-            <Route path="new" element={<New />}></Route>
+            <Route path="new" element={<New inputs={userData} title="Add New Product" />}></Route>
           </Route>
           <Route path="product">
             <Route index element={<List />}></Route>
             <Route path=":userId" element={<Single />}></Route>
-            <Route path="new" element={<New />}></Route>
+            <Route path="new" element={<New inputs={productData} title="Add New Product"/>}></Route>
           </Route>
         </Route>
       </Routes>
