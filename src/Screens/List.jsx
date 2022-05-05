@@ -17,7 +17,7 @@ const List = () => {
               View
             </button>
             <button className=" mx-1 text-red-400 p-2 border-[1px] border-red-400">
-              Delete
+              Remove
             </button>
           </div>
         );
