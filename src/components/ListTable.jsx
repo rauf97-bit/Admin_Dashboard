@@ -34,7 +34,7 @@ const ListTable = () => {
                 <TableCell className="">{row.id}</TableCell>
                 <TableCell>
                   <div className="flex items-center">
-                  <img src={row.img} alt="Img" srcset="" className="h-10 w-10 rounded-full mr-3" />
+                  <img src={row.img} alt="Img" srcSet="" className="h-10 w-10 rounded-full mr-3" />
                   <p>{row.product}</p>
                   </div>
                 </TableCell>

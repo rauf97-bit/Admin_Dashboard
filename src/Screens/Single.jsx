@@ -5,14 +5,14 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import profileImg from "../images/c7.jpg";
 
-const Single = () => {
+const Single = ({mode, setMode}) => {
   return (
     <div className="flex">
       <React.Fragment>
-        <Sidebar />
+        <Sidebar setMode={setMode} />
       </React.Fragment>
       <div className="flex-1">
-        <Navbar />
+        <Navbar setMode={setMode} mode={mode} />
         <div className="flex gap-2">
           <div className="shadow-xl rounded-lg p-3 px-2 relative max-w-sm">
             <p className="absolute top-0 right-0 p-1 rounded-sm text-purple-600 bg-purple-400">

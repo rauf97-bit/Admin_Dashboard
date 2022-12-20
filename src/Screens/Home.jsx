@@ -6,14 +6,14 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Widget from "../components/Widget";
 
-const Home = () => {
+const Home = ({mode, setMode}) => {
   return (
     <div className="flex">
       <React.Fragment>
-        <Sidebar />
+        <Sidebar setMode={setMode} />
       </React.Fragment>
       <div className="flex-1">
-        <Navbar />
+        <Navbar setMode={setMode} mode={mode} />
         <div className="flex gap-5">
           <Widget type="users" />
           <Widget type="orders" />
@@ -22,7 +22,7 @@ const Home = () => {
         </div>
         <div className="grid gap-5 grid-cols-3 py-3">
           <Features />
-          <Chart aspect={2 / 1} />
+          <Chart aspect={2 / 1} mode={mode} />
         </div>
         <ListTable />
       </div>

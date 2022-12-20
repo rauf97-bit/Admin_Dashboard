@@ -1,5 +1,5 @@
 export const userData = [
-  { id: 1, label:  "userName", placeholder: "Peter_Griffin", type : "text"   },
+  { id: 1, label:  "Username", placeholder: "Peter_Griffin", type : "text"   },
   { id: 2, label:  "Name and Surname", placeholder: "Peter Griffin", type : "text"   },
   { id: 4, label:  "Email", placeholder: "peterG@gmail.com", type : "email"   },
   { id: 3, label:  "PhoneNumber", placeholder: "+123 456 789", type : "text"   },

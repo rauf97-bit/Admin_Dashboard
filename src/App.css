@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.app.dark-theme{
+  background: #222;
+  color: rgb(240, 233, 233) !important;
+}
+/* .MuiDataGrid-cellContent, .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell--withRenderer{
+
+} */

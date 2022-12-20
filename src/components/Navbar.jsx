@@ -9,7 +9,10 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({setMode, mode}) => {
+  const changeMode = () =>{
+    setMode(!mode)
+  }
   return (
     <div className="navbar">
       <div className="flex h-[50px] px-6 items-center justify-between">
@@ -26,8 +29,8 @@ const Navbar = () => {
             <LanguageOutlined className="mx-2" />
             <span>English</span>
           </li>
-          <li>
-            <DarkModeOutlined className="mx-2" />
+          <li onClick={()=> changeMode()}>
+            <DarkModeOutlined className="mx-2 cursor-pointer"   />
           </li>
           <li>
             <FullscreenExitOutlined className="mx-2" />

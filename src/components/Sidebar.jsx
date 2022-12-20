@@ -13,7 +13,8 @@ import {
   SettingsSystemDaydreamOutlined,
   Store,
 } from "@mui/icons-material";
-const Sidebar = () => {
+import { Link } from "react-router-dom";
+const Sidebar = ({setMode}) => {
   return (
     <div className="sidebar h-[100vh] border-r-4 border-r-gray-200 ">
       <div className="p-3 px-8 text-center h-[50px] text-violet-700 font-bold text-xl">
@@ -27,14 +28,14 @@ const Sidebar = () => {
           <span>Dashboard</span>
         </div>
         <div className=" text-gray-500">LIST</div>
-        <div className="flex p-1 items-center">
+        <Link to={'/users'} className="flex p-1 items-center">
           <PersonOutlined className="text-violet-700 mr-2" />
           <span>Users</span>
-        </div>
-        <div className="flex p-1 items-center">
+        </Link>
+        <Link to={'/products'} className="flex p-1 items-center">
           <Store className="text-violet-700 mr-2" />
           <span>Products</span>
-        </div>
+        </Link>
         <div className="flex p-1 items-center">
           <CreditCard className="text-violet-700 mr-2" />
           <span>Orders</span>
@@ -76,8 +77,8 @@ const Sidebar = () => {
         </div>
 
         <div className="mode mx-auto my-3 flex items-center">
-          <div className="p-5 mx-2 border-violet-500 border-[0.5px] rounded-lg"></div>
-          <div className="p-5 border-white border-[0.5px]  rounded-lg bg-black"></div>
+          <div onClick={() => setMode(false)} className="p-5 mx-2 bg-white cursor-pointer border-violet-500 border-[0.5px] rounded-lg"></div>
+          <div onClick={() => setMode(true)} className="p-5 border-white cursor-pointer border-[0.5px]  rounded-lg bg-black"></div>
         </div>
       </div>
     </div>

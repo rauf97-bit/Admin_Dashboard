@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({aspect}) => {
+const Chart = ({aspect, mode}) => {
   const data = [
     { name: "January", Total: 1600 },
     { name: "February", Total: 2000 },
@@ -18,7 +18,7 @@ const Chart = ({aspect}) => {
     { name: "June", Total: 1850 },
   ];
   return (
-    <div className="col-span-2 shadow-xl">
+    <div className={mode ? "bg-black text-white col-span-2 shadow-xl" : "col-span-2 shadow-xl"}>
       <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart
           width={500}
