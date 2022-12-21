@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Screens/Home";
 import List from "./Screens/List";
@@ -7,59 +7,31 @@ import New from "./Screens/New";
 import Single from "./Screens/Single";
 import { productData, userData } from "./Data/newData";
 import "./App.css";
+import { DarkModeContext } from "./context/darkModeContext";
 const App = () => {
-  const [mode, setMode] = useState(false);
+  const { darkMode } = useContext(DarkModeContext);
   return (
     <Router>
-      <div className={mode ? "app dark-theme" : ""}>
+      <div className={darkMode ? "app dark-theme" : ""}>
         <Routes>
           <Route path="/">
-            <Route
-              index
-              element={<Home mode={mode} setMode={setMode} />}
-            ></Route>
+            <Route index element={<Home />}></Route>
             {/* <Route path='signup' element={} ></Route> */}
             <Route path="login" element={<Login />}></Route>
             <Route path="users">
-              <Route
-                index
-                element={<List mode={mode} setMode={setMode} />}
-              ></Route>
-              <Route
-                path=":userId"
-                element={<Single mode={mode} setMode={setMode} />}
-              ></Route>
+              <Route index element={<List />}></Route>
+              <Route path=":userId" element={<Single />}></Route>
               <Route
                 path="new"
-                element={
-                  <New
-                    mode={mode}
-                    setMode={setMode}
-                    inputs={userData}
-                    title="Add New Product"
-                  />
-                }
+                element={<New inputs={userData} title="Add New Product" />}
               ></Route>
             </Route>
             <Route path="products">
-              <Route
-                index
-                element={<List mode={mode} setMode={setMode} />}
-              ></Route>
-              <Route
-                path=":userId"
-                element={<Single mode={mode} setMode={setMode} />}
-              ></Route>
+              <Route index element={<List />}></Route>
+              <Route path=":userId" element={<Single />}></Route>
               <Route
                 path="new"
-                element={
-                  <New
-                    mode={mode}
-                    setMode={setMode}
-                    inputs={productData}
-                    title="Add New Product"
-                  />
-                }
+                element={<New inputs={productData} title="Add New Product" />}
               ></Route>
             </Route>
           </Route>

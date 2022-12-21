@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { listScreenRows, listScreenColumns } from "../Data";
 import { Link } from "react-router-dom";
+import "../App.css";
+import { DarkModeContext } from "../context/darkModeContext";
 
-const List = ({mode, setMode}) => {
+const List = () => {
+  const { darkMode } = useContext(DarkModeContext);
+  const handleClick = id => {
+    setNewRow(newRow.filter(row => row.id !== id))
+  }
+  const [newRow, setNewRow] = useState(listScreenRows)
   const actionColumn = [
     {
       field: "action",
@@ -14,10 +21,14 @@ const List = ({mode, setMode}) => {
       renderCell: (params) => {
         return (
           <div className="flex flex-1 items-center">
-            <Link to='/users' className=" mx-1 text-purple-400 p-2 border-[1px] border-purple-400">
+            <Link
+              to="/users/:userid"
+              className=" mx-1 text-purple-400 p-2 border-[1px] border-purple-400"
+            >
               View
             </Link>
-            <button className=" mx-1 text-red-400 p-2 border-[1px] border-red-400">
+            <button className=" mx-1 text-red-400 p-2 border-[1px] border-red-400" 
+              onClick={() => handleClick(params.id)}>
               Remove
             </button>
           </div>
@@ -26,25 +37,36 @@ const List = ({mode, setMode}) => {
     },
   ];
   return (
-    <div>
-      <div className='flex'>
-      <React.Fragment>
-        <Sidebar setMode={setMode} />
-      </React.Fragment>
-      <div className="flex-1" >
-        <Navbar setMode={setMode} mode={mode} />
-          <div style={{height: "100%", width: "100%" }} className={mode ? "text-white" : ""}>
-            <DataGrid
-              rows={listScreenRows}
-              columns={listScreenColumns.concat(actionColumn)}
-              pageSize={9}
-              rowsPerPageOptions={[9]}
-              checkboxSelection
-            />
+    <>
+      <style>
+        {`
+          #darkText{
+            color: white !important;
+            background : #808080;
+          }  
+        `}
+      </style>
+      <div>
+        <div className="flex">
+          <React.Fragment>
+            <Sidebar />
+          </React.Fragment>
+          <div className="flex-1">
+            <Navbar />
+            <div style={{ height: "100%", width: "100%" }} 
+                id={darkMode ? "darkText" : ""}>
+              <DataGrid
+                rows={newRow}
+                columns={listScreenColumns.concat(actionColumn)}
+                pageSize={9}
+                rowsPerPageOptions={[9]}
+                checkboxSelection
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

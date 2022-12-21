@@ -7,12 +7,12 @@ import {
   NotificationsNoneOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useContext } from "react";
+import { DarkModeContext } from "../context/darkModeContext";
 
-const Navbar = ({setMode, mode}) => {
-  const changeMode = () =>{
-    setMode(!mode)
-  }
+const Navbar = () => {
+ 
+  const {dispatch} = useContext(DarkModeContext)
   return (
     <div className="navbar">
       <div className="flex h-[50px] px-6 items-center justify-between">
@@ -29,7 +29,7 @@ const Navbar = ({setMode, mode}) => {
             <LanguageOutlined className="mx-2" />
             <span>English</span>
           </li>
-          <li onClick={()=> changeMode()}>
+          <li onClick={()=> dispatch({type: "TOGGLE"})}>
             <DarkModeOutlined className="mx-2 cursor-pointer"   />
           </li>
           <li>

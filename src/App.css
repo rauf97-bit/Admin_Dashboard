@@ -39,6 +39,7 @@
 .app.dark-theme{
   background: #222;
   color: rgb(240, 233, 233) !important;
+  text-emphasis-color: white !important;
 }
 /* .MuiDataGrid-cellContent, .MuiDataGrid-columnHeaderTitle, .MuiDataGrid-cell--withRenderer{
 

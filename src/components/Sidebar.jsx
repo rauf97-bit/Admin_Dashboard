@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Dashboard from "@mui/icons-material/Dashboard";
 import {
   AccountCircleOutlined,
@@ -14,7 +14,10 @@ import {
   Store,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-const Sidebar = ({setMode}) => {
+import { DarkModeContext } from "../context/darkModeContext";
+
+const Sidebar = () => {
+  const {dispatch} = useContext(DarkModeContext)
   return (
     <div className="sidebar h-[100vh] border-r-4 border-r-gray-200 ">
       <div className="p-3 px-8 text-center h-[50px] text-violet-700 font-bold text-xl">
@@ -77,8 +80,8 @@ const Sidebar = ({setMode}) => {
         </div>
 
         <div className="mode mx-auto my-3 flex items-center">
-          <div onClick={() => setMode(false)} className="p-5 mx-2 bg-white cursor-pointer border-violet-500 border-[0.5px] rounded-lg"></div>
-          <div onClick={() => setMode(true)} className="p-5 border-white cursor-pointer border-[0.5px]  rounded-lg bg-black"></div>
+          <div onClick={() => dispatch({type : "LIGHT"})}  className="p-5 mx-2 bg-white cursor-pointer border-violet-500 border-[0.5px] rounded-lg"></div>
+          <div onClick={() => dispatch({type : "DARK"})} className="p-5 border-white cursor-pointer border-[0.5px]  rounded-lg bg-black"></div>
         </div>
       </div>
     </div>

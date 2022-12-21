@@ -4,16 +4,16 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import img from '../images/c6.jpg'
 
-const New = ({ inputs, title, mode, setMode }) => {
+const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   return (
     <div>
       <div className="flex">
       <React.Fragment>
-        <Sidebar setMode={setMode} />
+        <Sidebar  />
       </React.Fragment>
       <div className="flex-1">
-        <Navbar setMode={setMode} mode={mode} />
+        <Navbar  />
           <div className="">
             <h2 className="text-gray-400 shadow-lg p-2 text-xl">{title}</h2>
             <div className="grid grid-cols-4 p-2">
